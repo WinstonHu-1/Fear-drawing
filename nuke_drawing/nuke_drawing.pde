@@ -1,10 +1,14 @@
   int d = 0;
+
 void setup() {
   size (900,700,P2D);
 }
 
 void draw(){
-background(71,219,234);
+background(131,81,76);
+noStroke();
+fill(76,131,78);
+rect(0,500,900,200);
 nuke();
 }
 
@@ -12,6 +16,9 @@ void nuke() {
 
 
 //mushroom cloud
+pushMatrix();
+//translate(100,150);
+//scale(0.5);
 pushMatrix();
 translate(450,450);
 strokeWeight(7);
@@ -32,6 +39,7 @@ bezierVertex(-300,-200,-300,-120,-190,-100);
 bezierVertex(-190,0,-100,-20,-60,-40);
 endShape();
 bezier(-120,-325,-75,-425,75,-425,120,-325);
+
 noStroke();
 beginShape();
 vertex(-120,-325);
@@ -39,6 +47,12 @@ vertex(120,-325);
 vertex(60,-40);
 vertex(-60,-40);
 endShape();
+noFill();
+stroke(130,22,21);
+bezier(-100,-200,-50,-150,50,-150,100,-230);
+bezier(100,-230,140,-170,200,-150,240,-200);
+bezier(240,-200,230,-130,150,-100,95,-150);
+
 popMatrix();
 
 pushMatrix();
@@ -61,5 +75,5 @@ strokeWeight(10);
 noFill();
 bezier(-90,-150,-50,-110,50,-110,90,-150);
 popMatrix();
-
+popMatrix();
 }
