@@ -1,26 +1,29 @@
-  int d = 0;
-
+  int x = 0;
+  int y = 0;
 void setup() {
   size (900,700,P2D);
 }
 
 void draw(){
 background(131,81,76);
+nuke(100,150);
 noStroke();
 fill(76,131,78);
 rect(0,500,900,200);
-nuke();
+
 }
 
-void nuke() {
+void nuke(int x, int y) {
 
 
 //mushroom cloud
 pushMatrix();
-translate(100,150);
+translate(x,y);
 scale(0.5);
 pushMatrix();
 translate(450,450);
+
+
 strokeWeight(7);
 stroke(130,22,21);
 fill(239,96,45);
@@ -50,6 +53,10 @@ vertex(-60,-40);
 endShape();
 noFill();
 
+fill(242,117,33,90);
+ellipse(0,-180,500,200);
+fill(254,233,50,20);
+ellipse(0,-180,300,200);
 fill(130,22,21);
 stroke(130,22,21);
 beginShape();
@@ -62,7 +69,10 @@ bezierVertex(-150,-100,-230,-120,-250,-170);
 bezierVertex(-120,-180,-160,-180,-180,-200);
 bezierVertex(-200,-170,-220,-160,-250,-170);
 endShape();
+ellipse(-170,-170,50,50);
+
 popMatrix();
+
 
 
 pushMatrix();
@@ -73,9 +83,10 @@ strokeWeight(5);
 line(-50,-120,-50,200);
 line(50,-120,50,200);
 
-
+noStroke();
 //coloring
-fill(255,250,192);
+
+fill(251,250,127);
 rect(-50,-120,100,320,20);
 fill(253,238,52);
 noStroke();
@@ -83,6 +94,14 @@ stroke(158,38,28);
 strokeWeight(10);
 noFill();
 bezier(-90,-150,-50,-110,50,-110,90,-150);
+
+noStroke();
+fill(180,174,160,75);
+ellipse(0,200,400,300);
+ellipse(-100,200,300,200);
+ellipse(100,200,300,200);
+fill(253,212,41,50);
+ellipse(0,0,800,50);
 popMatrix();
 popMatrix();
 }
