@@ -1,25 +1,108 @@
-  int x = 0;
-  int y = 0;
+  int x = 100;
+  float y = 500;
+  float s = 0.8;
+  int counter = 0;
+  float y1 = 950;
+  float y2 = 1400;
 void setup() {
   size (900,700,P2D);
 }
 
 void draw(){
 background(131,81,76);
-nuke(100,150);
+
+//buildings
+fill(216,191,125);
+rect(100,100,200,500);
+fill(198,211,141);
+rect(500,100,200,500);
+fill(245,238,15);
+rect(125,125,50,50);
+rect(225,125,50,50);
+rect(125,200,50,50);
+rect(225,200,50,50);
+rect(125,275,50,50);
+rect(225,275,50,50);
+rect(125,350,50,50);
+rect(225,350,50,50);
+rect(125,425,50,50);
+rect(225,425,50,50);
+rect(525,125,50,50);
+rect(625,125,50,50);
+rect(525,200,50,50);
+rect(625,200,50,50);
+rect(525,275,50,50);
+rect(625,275,50,50);
+rect(525,350,50,50);
+rect(625,350,50,50);
+rect(525,425,50,50);
+rect(625,425,50,50);
+
+nuke(100,y,s);
+
+y=y-5;
+
+if (y<-10) {
+  y=-10;
+  
+}
+
+nuke(-150,y1,s);
+
+y1=y1-5;
+
+if (y1<-10) {
+  y1=-10;
+  
+}
+
+nuke(300,y2,s);
+y2=y2-5;
+
+if (y2<-10) {
+  y2=-10;
+  
+}
+
+
+
 noStroke();
 fill(76,131,78);
 rect(0,500,900,200);
 
+counter = counter+10;
+if (counter<30) {
+  flash();
 }
 
-void nuke(int x, int y) {
+if (counter>30) {
+  noFlash();
+
+}
+
+if (counter ==60) {
+  counter=0;
+}
+}
+
+void flash() {
+ fill(180,174,160,50);
+ rect(0,0,900,700);
+}
+
+void noFlash() {
+ noFill();
+ noStroke();
+ rect(0,0,900,700);
+}
+
+void nuke(int x, float y,float s) {
 
 
 //mushroom cloud
 pushMatrix();
 translate(x,y);
-scale(0.5);
+scale(s);
 pushMatrix();
 translate(450,450);
 
@@ -95,6 +178,7 @@ strokeWeight(10);
 noFill();
 bezier(-90,-150,-50,-110,50,-110,90,-150);
 
+//smoke
 noStroke();
 fill(180,174,160,75);
 ellipse(0,200,400,300);
